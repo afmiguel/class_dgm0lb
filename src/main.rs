@@ -13,10 +13,22 @@ impl LinkedList{
             }
         }
     }
+
+    pub fn push_back(&mut self, value: i32){
+        match self{
+            LinkedList::Nil => *self = LinkedList::Node(value, Box::new(LinkedList::Nil)),
+            LinkedList::Node(v, tail) => tail.push_back(value),
+        }
+    }
+
 }
 
 use LinkedList::{Nil, Node};
 
 fn main() {
-    let lista = Node(10, Box::new(Node(20, Box::new(Nil))));
+    let mut lista = Nil;
+    lista.push_back(10);
+    lista.push_back(20);
+    lista.push_back(30);
+    lista.display_list();
 }
