@@ -1,3 +1,4 @@
+#[derive(Clone)]
 enum LinkedList{
     Nil,
     Node(i32, Box<LinkedList>),
@@ -21,14 +22,22 @@ impl LinkedList{
         }
     }
 
+    pub fn push_front(&mut self, value: i32){
+        *self = LinkedList::Node(value, Box::new(self.clone()));
+    }
 }
 
 use LinkedList::{Nil, Node};
 
 fn main() {
     let mut lista = Nil;
+    println!("Criando a lista...");
     lista.push_back(10);
     lista.push_back(20);
     lista.push_back(30);
+    lista.display_list();
+
+    println!("push_front()5");
+    lista.push_front(5);
     lista.display_list();
 }
