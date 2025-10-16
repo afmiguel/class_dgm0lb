@@ -37,7 +37,7 @@ fn main() {
     lista.push_back(30);
     lista.display_list();
 
-    println!("push_front()5");
+    println!("push_front(5)");
     lista.push_front(5);
     lista.display_list();
 }
