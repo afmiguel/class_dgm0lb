@@ -38,6 +38,24 @@ impl LinkedList{
             }
         }
     }
+
+    pub fn delete(&mut self, index: usize) -> Option<i32>{
+        if index == 0{
+            match self{
+                LinkedList::Nil => None,
+                LinkedList::Node(v, tail ) => {
+                    let temp = *v;
+                    *self = *tail.clone();
+                    Some(temp)
+                }
+            }
+        } else{
+            match self{
+                LinkedList::Nil => panic!("Index error!"),
+                LinkedList::Node(_, tail) => tail.delete(index-1)
+            }
+        }
+    }
 }
 
 use LinkedList::{Nil, Node};
