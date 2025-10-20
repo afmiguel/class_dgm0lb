@@ -76,6 +76,5 @@ fn main() {
     lista.display_list();
 
     lista.delete(3);
+    lista.display_list();
 }
-
-//Testes 123
