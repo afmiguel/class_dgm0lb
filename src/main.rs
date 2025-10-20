@@ -27,6 +27,16 @@ impl LinkedList{
     }
 
     pub fn insert(&mut self, index: usize, value: i32){
+        if index == 0 {
+            self.push_front(value);
+        } else {
+            match self {
+                LinkedList::Nil => panic!("Index error!"),
+                LinkedList::Node(_, tail) => {
+                    tail.insert(index-1, value);
+                }
+            }
+        }
 
     }
 }
