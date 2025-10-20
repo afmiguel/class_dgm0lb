@@ -53,6 +53,9 @@ fn main() {
     println!("push_front(5)");
     lista.push_front(5);
     lista.display_list();
+
+    lista.insert(2, 15);
+    lista.display_list();
 }
 
 //Testes 123
