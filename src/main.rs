@@ -74,6 +74,8 @@ fn main() {
 
     lista.insert(2, 15);
     lista.display_list();
+
+    lista.delete(3);
 }
 
 //Testes 123
