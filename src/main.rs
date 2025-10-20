@@ -25,6 +25,10 @@ impl LinkedList{
     pub fn push_front(&mut self, value: i32){
         *self = LinkedList::Node(value, Box::new(self.clone()));
     }
+
+    pub fn insert(&mut self, index: usize, value: i32){
+
+    }
 }
 
 use LinkedList::{Nil, Node};
