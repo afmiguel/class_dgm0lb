@@ -4,6 +4,16 @@ enum LinkedList{
     Node(i32, Box<LinkedList>),
 }
 
+impl Drop for LinkedList{
+    fn drop(&mut self){
+        let address = std::ptr::addr_of!(*self);
+        match self{
+            LinkedList::Nil => println!("Dropando Nil [{:p}]", address),
+            LinkedList::Node(v, _) => println!("Dropando Node({}) [{:p}]", v, address),
+        }
+    }
+}
+
 impl LinkedList{
     pub fn display_list(&self){
         match self{
@@ -79,4 +89,3 @@ fn main() {
     lista.display_list();
 }
 
-//teste
