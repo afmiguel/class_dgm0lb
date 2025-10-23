@@ -16,10 +16,11 @@ impl Drop for LinkedList{
 
 impl LinkedList{
     pub fn display_list(&self){
+        let address = std::ptr::addr_of!(*self);
         match self{
-            LinkedList::Nil => println!("nil"),
+            LinkedList::Nil => println!("nil[{:p}]", address),
             LinkedList::Node(value, tail ) => {
-                print!("{:?}->", value);
+                print!("{:?}[{:p}]->", value, address);
                 tail.display_list();
             }
         }
