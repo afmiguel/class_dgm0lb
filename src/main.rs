@@ -34,7 +34,7 @@ impl LinkedList{
     }
 
     pub fn push_front(&mut self, value: i32){
-        // *self = LinkedList::Node(value, Box::new(self.clone()));
+        //*self = LinkedList::Node(value, Box::new(self.clone()));
         let mut new_element = LinkedList::Nil;
         std::mem::swap(self, &mut new_element);
         *self = LinkedList::Node(value, Box::new(new_element));
@@ -86,10 +86,10 @@ fn main() {
     lista.push_front(5);
     lista.display_list();
 
-    lista.insert(2, 15);
-    lista.display_list();
+//    lista.insert(2, 15);
+//    lista.display_list();
 
-    lista.delete(3);
-    lista.display_list();
+//    lista.delete(3);
+//    lista.display_list();
 }
 
