@@ -59,7 +59,10 @@ impl LinkedList{
                 LinkedList::Nil => None,
                 LinkedList::Node(v, tail ) => {
                     let temp = *v;
-                    *self = *tail.clone();
+                    //*self = *tail.clone();
+                    let mut new_element = LinkedList::Nil;
+                    std::mem::swap(tail as &mut LinkedList, &mut new_element);
+                    *self = new_element;
                     Some(temp)
                 }
             }
@@ -82,14 +85,16 @@ fn main() {
     lista.push_back(30);
     lista.display_list();
 
-    println!("push_front(5)");
-    lista.push_front(5);
-    lista.display_list();
+    // println!("push_front(5)");
+    // lista.push_front(5);
+    // lista.display_list();
 
 //    lista.insert(2, 15);
 //    lista.display_list();
 
-//    lista.delete(3);
-//    lista.display_list();
+      println!("delete(0)");
+      lista.delete(0);
+      lista.display_list();
+      println!("-----------------");
 }
 
